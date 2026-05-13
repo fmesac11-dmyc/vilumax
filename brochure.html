@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VILUMAX — Brochure Corporativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:    #0D2626;
+            --bg2:   #112E2E;
+            --cyan:  #00D4CC;
+            --silver:#8B9299;
+            --white: #FFFFFF;
+            --light: #F4F7F7;
+            --border:#DDE6E6;
+            --text:  #152828;
+            --muted: #5A7070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #9DAFAF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 16px;
+            gap: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 6px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            page-break-after: always;
+        }
+
+        /* ========== PÁGINA 1: PORTADA ========== */
+        .cover {
+            background: var(--bg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative grid lines */
+        .cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,212,204,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,204,0.06) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Glow */
+        .cover::after {
+            content: '';
+            position: absolute;
+            top: -80px; left: -80px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(0,212,204,0.18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .cover-top {
+            padding: 40px 44px 0;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cover-brand-name {
+            font-size: 3.4rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            color: var(--cyan);
+            line-height: 1;
+        }
+
+        .cover-brand-sub {
+            font-size: .72rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--silver);
+            margin-top: 5px;
+        }
+
+        .cover-badge {
+            background: rgba(0,212,204,0.12);
+            border: 1px solid rgba(0,212,204,0.3);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: .65rem;
+            color: var(--cyan);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .cover-mid {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 44px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-tagline {
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            margin-bottom: 16px;
+        }
+
+        .cover-headline {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 420px;
+        }
+
+        .cover-headline span { color: var(--cyan); }
+
+        .cover-body {
+            font-size: .82rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.72);
+            max-width: 400px;
+        }
+
+        /* Stats */
+        .cover-stats {
+            display: flex;
+            gap: 0;
+            border-top: 1px solid rgba(0,212,204,0.2);
+            padding: 0 44px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cstat {
+            flex: 1;
+            padding: 22px 0;
+            border-right: 1px solid rgba(0,212,204,0.2);
+            text-align: center;
+        }
+
+        .cstat:last-child { border-right: none; }
+
+        .cstat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cyan);
+            line-height: 1;
+        }
+
+        .cstat-label {
+            font-size: .65rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: 5px;
+        }
+
+        /* Value props */
+        .cover-props {
+            padding: 20px 44px 28px;
+            display: flex;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cprop {
+            flex: 1;
+            background: rgba(0,212,204,0.07);
+            border: 1px solid rgba(0,212,204,0.2);
+            border-radius: 6px;
+            padding: 14px;
+        }
+
+        .cprop-ico { font-size: 1.4rem; margin-bottom: 6px; display: block; }
+
+        .cprop-title {
+            font-size: .73rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .cprop-text {
+            font-size: .65rem;
+            color: var(--silver);
+            line-height: 1.5;
+        }
+
+        .cover-footer {
+            padding: 14px 44px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .65rem;
+            color: var(--silver);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-footer a { color: var(--cyan); text-decoration: none; }
+
+        /* ========== PÁGINA 2: PRODUCTOS ========== */
+        .products-page {
+            background: white;
+        }
+
+        .prod-header {
+            background: var(--bg);
+            padding: 20px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prod-header-brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            color: var(--cyan);
+        }
+
+        .prod-header-sub {
+            font-size: .58rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--silver);
+            margin-top: 2px;
+        }
+
+        .prod-header-title {
+            text-align: right;
+            font-size: .9rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .prod-accent {
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan) 0%, transparent 100%);
+        }
+
+        .prod-intro {
+            padding: 20px 36px 14px;
+            text-align: center;
+        }
+
+        .prod-intro-label {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        .prod-intro h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        .prod-intro p {
+            font-size: .75rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* Product grid */
+        .prod-grid {
+            padding: 0 28px 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .prod-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px 14px;
+            background: var(--light);
+            overflow: hidden;
+        }
+
+        .prod-card-img {
+            width: calc(100% + 28px);
+            margin: -16px -14px 12px;
+            height: 88px;
+            overflow: hidden;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .prod-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            filter: brightness(0.82) saturate(0.68);
+        }
+
+        .prod-card-ico {
+            width: 36px; height: 36px;
+            background: var(--bg);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .prod-card h3 {
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .prod-card p {
+            font-size: .68rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .prod-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .prod-tag {
+            background: rgba(0,212,204,0.1);
+            border: 1px solid rgba(0,212,204,0.3);
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: .6rem;
+            font-weight: 500;
+            color: #007A76;
+        }
+
+        /* Sectors bar */
+        .sectors-bar {
+            padding: 10px 28px 12px;
+            border-top: 1px solid var(--border);
+            background: var(--light);
+        }
+
+        .sectors-label {
+            font-size: .55rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        .sectors-grid {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .sector-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 7px 8px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: .62rem;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .sector-ico { font-size: 1.1rem; }
+
+        /* Page 2 footer */
+        .prod-footer {
+            margin-top: auto;
+            background: var(--bg);
+            color: var(--silver);
+            padding: 12px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .65rem;
+        }
+
+        .prod-footer strong { color: var(--cyan); }
+
+        /* ========== PÁGINA 3: CONTACTO ========== */
+        .contact-page {
+            background: var(--bg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,212,204,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,204,0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        .contact-top {
+            padding: 28px 44px 0;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ct-brand { font-size: 1.6rem; font-weight: 800; color: var(--cyan); letter-spacing: .06em; }
+        .ct-brand-sub { font-size: .58rem; text-transform: uppercase; letter-spacing: .12em; color: var(--silver); margin-top: 2px; }
+
+        .contact-mid {
+            flex: 1;
+            padding: 30px 44px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-label {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact-heading {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .contact-heading span { color: var(--cyan); }
+
+        .contact-body {
+            font-size: .8rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 380px;
+            margin-bottom: 28px;
+        }
+
+        /* Contact items */
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ci {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(0,212,204,0.08);
+            border: 1px solid rgba(0,212,204,0.2);
+            border-radius: 6px;
+            padding: 14px 18px;
+        }
+
+        .ci-ico {
+            width: 38px; height: 38px;
+            background: rgba(0,212,204,0.12);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            color: var(--cyan);
+        }
+
+        .ci strong {
+            display: block;
+            font-size: .75rem;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .ci span {
+            font-size: .72rem;
+            color: var(--silver);
+        }
+
+        /* Why us section */
+        .why-section {
+            padding: 24px 44px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-title {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 14px 10px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+        }
+
+        .why-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--cyan);
+            line-height: 1;
+        }
+
+        .why-text {
+            font-size: .65rem;
+            color: var(--silver);
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        .contact-page-footer {
+            padding: 16px 44px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .65rem;
+            color: var(--silver);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== PRINT ========== */
+        @media print {
+            body { background: none; padding: 0; }
+            .page { box-shadow: none; width: 100%; min-height: 100vh; }
+            @page { size: A4; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== PÁGINA 1: PORTADA ========== -->
+<div class="page">
+    <div class="cover">
+        <div class="cover-top">
+            <img src="img/logo.png" alt="VILUMAX" style="height:60px; width:220px; object-fit:cover; object-position:center 42%; display:block; border-radius:6px;">
+            <span class="cover-badge">Santiago · Chile</span>
+        </div>
+
+        <div class="cover-mid">
+            <p class="cover-tagline">Distribuidor especializado</p>
+            <h1 class="cover-headline">Tu socio técnico en <span>materiales geosintéticos</span> para la construcción</h1>
+            <p class="cover-body">Proveemos tuberías HDPE, geomembranas, geotextiles y sistemas de drenaje para proyectos de minería, agricultura, sanitario e infraestructura civil en todo Chile. Asesoría técnica realizada por expertos en ejecución de proyectos de construcción, disponibilidad inmediata en productos de alta rotación y despacho directo en obra.</p>
+        </div>
+
+        <div class="cover-stats">
+            <div class="cstat">
+                <div class="cstat-num">15+</div>
+                <div class="cstat-label">Años de exp. del equipo en el sector</div>
+            </div>
+            <div class="cstat">
+                <div class="cstat-num">86+</div>
+                <div class="cstat-label">Proyectos abastecidos</div>
+            </div>
+            <div class="cstat">
+                <div class="cstat-num">24h</div>
+                <div class="cstat-label">Resp. a cotizaciones</div>
+            </div>
+            <div class="cstat">
+                <div class="cstat-num">48h</div>
+                <div class="cstat-label">Entrega en obra</div>
+            </div>
+        </div>
+
+        <div class="cover-props">
+            <div class="cprop">
+                <span class="cprop-ico">⚡</span>
+                <div class="cprop-title">Respuesta en &lt; 24h</div>
+                <div class="cprop-text">Cotizaciones con disponibilidad y precios actualizados en menos de un día hábil.</div>
+            </div>
+            <div class="cprop">
+                <span class="cprop-ico">🚚</span>
+                <div class="cprop-title">Despacho 24–48h</div>
+                <div class="cprop-text">Entrega directa en obra a nivel nacional, con seguimiento de pedido.</div>
+            </div>
+            <div class="cprop">
+                <span class="cprop-ico">🔬</span>
+                <div class="cprop-title">Asesoría técnica experta</div>
+                <div class="cprop-text">Expertos en ejecución de proyectos de construcción te asesoran en la selección del material correcto para cada aplicación.</div>
+            </div>
+        </div>
+
+        <div class="cover-footer">
+            <span>© 2025 VILUMAX — Todos los derechos reservados</span>
+            <span><a href="https://www.vilumax.cl">www.vilumax.cl</a></span>
+        </div>
+    </div>
+</div>
+
+<!-- ========== PÁGINA 2: PRODUCTOS ========== -->
+<div class="page products-page">
+    <div class="prod-header">
+        <img src="img/logo.png" alt="VILUMAX" style="height:42px; width:185px; object-fit:cover; object-position:center 42%; display:block; border-radius:5px;">
+        <div class="prod-header-title">Líneas de Producto</div>
+    </div>
+    <div class="prod-accent"></div>
+
+    <div class="prod-intro">
+        <p class="prod-intro-label">Portafolio completo</p>
+        <h2>Todo lo que necesitas, en un solo proveedor</h2>
+        <p>Materiales técnicos certificados con disponibilidad inmediata en productos de alta rotación y asesoría por expertos en ejecución de proyectos de construcción</p>
+    </div>
+
+    <div class="prod-grid">
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/1.png" alt="Tuberías Plásticas HDPE"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <rect x="4" y="18" width="40" height="12" rx="6" stroke="#00D4CC" stroke-width="2"/>
+                    <circle cx="24" cy="24" r="4" stroke="#00D4CC" stroke-width="1.5" opacity=".7"/>
+                </svg>
+            </div>
+            <h3>Tuberías Plásticas HDPE</h3>
+            <p>Dos líneas: lisa PE100 para conducción a presión y corrugada estructural para drenaje y alcantarillado por gravedad. Vida útil &gt; 50 años.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">Lisa — PN 4–25 bar</span>
+                <span class="prod-tag">Corrugada — SN4/SN8</span>
+                <span class="prod-tag">DN 20–1200 mm</span>
+            </div>
+        </div>
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/2.png" alt="Fittings y Electrofusión"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="8" stroke="#00D4CC" stroke-width="2"/>
+                    <line x1="4" y1="24" x2="16" y2="24" stroke="#00D4CC" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="32" y1="24" x2="44" y2="24" stroke="#00D4CC" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h3>Fittings y Electrofusión</h3>
+            <p>Accesorios de unión HDPE con tecnología de electrofusión. Uniones herméticas permanentes de máxima resistencia.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">DN 20–630 mm</span>
+                <span class="prod-tag">PN 16 bar</span>
+            </div>
+        </div>
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/3.png" alt="Láminas Drenantes"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <rect x="6" y="10" width="36" height="7" rx="1" stroke="#00D4CC" stroke-width="1.5"/>
+                    <rect x="6" y="22" width="36" height="7" rx="1" stroke="#00D4CC" stroke-width="1.5" opacity=".7"/>
+                    <rect x="6" y="34" width="36" height="7" rx="1" stroke="#00D4CC" stroke-width="1.5" opacity=".4"/>
+                </svg>
+            </div>
+            <h3>Láminas Drenantes</h3>
+            <p>Geocompuestos nodulares HDPE + geotextil para gestión eficiente de aguas subterráneas en muros y fundaciones.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">8–20 mm</span>
+                <span class="prod-tag">150–250 kN/m²</span>
+            </div>
+        </div>
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/4.png" alt="Sistemas de Drenaje"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <path d="M20 8 Q24 16 20 24 Q24 32 20 40" stroke="#00D4CC" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <path d="M32 10 Q36 18 32 26 Q36 34 32 40" stroke="#00D4CC" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+                    <rect x="4" y="40" width="42" height="3" rx="1.5" fill="#00D4CC" opacity=".25"/>
+                </svg>
+            </div>
+            <h3>Sistemas de Drenaje Modular</h3>
+            <p>Elementos modulares de plástico reciclado para infiltración y almacenamiento de aguas pluviales. Sistema de fácil armado. Múltiples clases de resistencia.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">11–38 ton/m²</span>
+                <span class="prod-tag">Plástico reciclado 100%</span>
+            </div>
+        </div>
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/5.png" alt="Geomembranas HDPE y PVC"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <path d="M6 14 L24 8 L42 14 L42 34 L24 40 L6 34 Z" stroke="#00D4CC" stroke-width="2" fill="none"/>
+                    <path d="M6 14 L24 20 L42 14" stroke="#00D4CC" stroke-width="1.5" opacity=".5"/>
+                    <line x1="24" y1="20" x2="24" y2="40" stroke="#00D4CC" stroke-width="1.5" opacity=".4"/>
+                </svg>
+            </div>
+            <h3>Geomembranas HDPE y PVC</h3>
+            <p>Láminas impermeabilizantes para estanques, rellenos, canales y piscinas. Espesores 0,5–3,0 mm, vida útil &gt; 50 años.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">0,5–3,0 mm</span>
+                <span class="prod-tag">HDPE / PVC</span>
+            </div>
+        </div>
+
+        <div class="prod-card">
+            <div class="prod-card-img"><img src="img/6.png" alt="Geotextiles"></div>
+            <div class="prod-card-ico">
+                <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                    <line x1="10" y1="10" x2="10" y2="40" stroke="#00D4CC" stroke-width="1.5" opacity=".5"/>
+                    <line x1="20" y1="10" x2="20" y2="40" stroke="#00D4CC" stroke-width="1.5"/>
+                    <line x1="30" y1="10" x2="30" y2="40" stroke="#00D4CC" stroke-width="1.5"/>
+                    <line x1="40" y1="10" x2="40" y2="40" stroke="#00D4CC" stroke-width="1.5" opacity=".5"/>
+                    <line x1="10" y1="20" x2="40" y2="20" stroke="#00D4CC" stroke-width="1.5"/>
+                    <line x1="10" y1="30" x2="40" y2="30" stroke="#00D4CC" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <h3>Geotextiles</h3>
+            <p>Tejidos y no tejidos PP/PET para filtración, separación y refuerzo. Gama completa de gramajes para cada aplicación.</p>
+            <div class="prod-card-tags">
+                <span class="prod-tag">100–800 g/m²</span>
+                <span class="prod-tag">PP / PET</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sectors-bar">
+        <p class="sectors-label">Sectores que atendemos</p>
+        <div class="sectors-grid">
+            <div class="sector-item"><span class="sector-ico">⛏️</span>Minería</div>
+            <div class="sector-item"><span class="sector-ico">🏗️</span>Construcción</div>
+            <div class="sector-item"><span class="sector-ico">🌾</span>Agricultura</div>
+            <div class="sector-item"><span class="sector-ico">🚰</span>Sanitario</div>
+            <div class="sector-item"><span class="sector-ico">🛣️</span>Obras Civiles</div>
+            <div class="sector-item"><span class="sector-ico">🌿</span>Medio Ambiente</div>
+        </div>
+    </div>
+
+    <div class="prod-footer">
+        <span><strong>VILUMAX</strong> · Distribuidor especializado en geosintéticos · Santiago, Chile</span>
+        <span>www.vilumax.cl</span>
+    </div>
+</div>
+
+<!-- ========== PÁGINA 3: CONTACTO ========== -->
+<div class="page">
+    <div class="contact-page">
+        <div class="contact-top">
+            <img src="img/logo.png" alt="VILUMAX" style="height:46px; width:200px; object-fit:cover; object-position:center 42%; display:block; border-radius:5px;">
+        </div>
+
+        <div class="contact-mid">
+            <p class="contact-label">Hablemos de tu proyecto</p>
+            <h2 class="contact-heading">¿Necesitas materiales<br>para tu <span>próxima obra</span>?</h2>
+            <p class="contact-body">Completa nuestro formulario online o contáctanos directamente. Indica el producto, cantidad y especificación técnica requerida — te respondemos con disponibilidad y precios en menos de 24 horas hábiles, con despacho garantizado en 24–48 horas a todo Chile.</p>
+
+            <div class="contact-items">
+                <div class="ci">
+                    <div class="ci-ico">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span>+56 9 5206 0911 — Respuesta inmediata</span>
+                    </div>
+                </div>
+                <div class="ci">
+                    <div class="ci-ico">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                        <strong>Email</strong>
+                        <span>ventas@vilumax.cl</span>
+                    </div>
+                </div>
+                <div class="ci">
+                    <div class="ci-ico">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <div>
+                        <strong>Web</strong>
+                        <span>www.vilumax.cl — Formulario de cotización online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-section">
+            <p class="why-title">Por qué elegir VILUMAX</p>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-num">15+</div>
+                    <div class="why-text">Años de experiencia del equipo en el sector construcción</div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">86+</div>
+                    <div class="why-text">Proyectos industriales, agrícolas y civiles abastecidos</div>
+                </div>
+                <div class="why-item">
+                    <div class="why-num">6</div>
+                    <div class="why-text">Líneas de geosintéticos y plásticos en stock permanente</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-page-footer">
+            <span>© 2025 VILUMAX — Santiago, Región Metropolitana, Chile</span>
+            <span>www.vilumax.cl</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
